@@ -29,9 +29,9 @@
 
                 <div class="mb-6">
                     <label class="block text-sm font-semibold text-slate-700 mb-1">
-                        Kemasan
+                        Kemasan <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" name="kemasan" value="{{ old('kemasan', $obat->kemasan) }}"
+                    <input type="text" name="kemasan" value="{{ old('kemasan', $obat->kemasan) }}" required
                         placeholder="Contoh: botol, strip, tablet"
                         class="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-primary focus:outline-none @error('kemasan') border-red-500 @enderror">
                     @error('kemasan')

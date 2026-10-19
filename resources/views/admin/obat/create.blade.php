@@ -35,10 +35,10 @@
                 <div class="form-control mb-5">
                     <label class="label pb-1">
                         <span class="text-sm font-semibold text-gray-700">
-                            Kemasan
+                            Kemasan <span class="text-red-500">*</span>
                         </span>
                     </label>
-                    <input type="text" name="kemasan" value="{{ old('kemasan') }}"
+                    <input type="text" name="kemasan" value="{{ old('kemasan') }}" required
                         placeholder="Contoh: botol, strip, tablet"
                         class="input input-bordered w-full rounded-lg text-sm @error('kemasan') input-error @enderror">
                     @error('kemasan')
