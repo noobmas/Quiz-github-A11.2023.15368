@@ -14,12 +14,12 @@ class JadwalPeriksaController extends Controller
     {
         $jadwalPeriksas = JadwalPeriksa::where('id_dokter', Auth::id())->orderBy('hari')->get();
 
-        return view('dokter.jadwal-periksa.index', compact('jadwalPeriksas'));
+        return view('jadwal-periksa.index', compact('jadwalPeriksas'));
     }
 
     public function create()
     {
-        return view('dokter.jadwal-periksa.create');
+        return view('jadwal-periksa.create');
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class JadwalPeriksaController extends Controller
     {
         $jadwalPeriksa = $this->jadwalMilikDokter($id);
 
-        return view('dokter.jadwal-periksa.edit', compact('jadwalPeriksa'));
+        return view('jadwal-periksa.edit', compact('jadwalPeriksa'));
     }
 
     public function update(Request $request, string $id)
