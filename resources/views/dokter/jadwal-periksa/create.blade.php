@@ -18,6 +18,29 @@
             <form action="{{ route('jadwal-periksa.store') }}" method="POST">
                 @csrf
 
+                <div class="form-control mb-5">
+                    <label for="id_poli" class="label pb-1">
+                        <span class="text-sm font-semibold text-gray-700">
+                            Poli <span class="text-red-500">*</span>
+                        </span>
+                    </label>
+                    <select id="id_poli" name="id_poli"
+                        class="select select-bordered w-full rounded-lg @error('id_poli') select-error @enderror"
+                        required>
+                        <option value="">Pilih Poli</option>
+                        @foreach ($polis as $poli)
+                        <option value="{{ $poli->id }}" @selected((string) old('id_poli') === (string) $poli->id)>
+                            {{ $poli->nama_poli }}
+                        </option>
+                        @endforeach
+                    </select>
+                    @error('id_poli')
+                    <label class="label pt-1">
+                        <span class="label-text-alt text-red-500">{{ $message }}</span>
+                    </label>
+                    @enderror
+                </div>
+
                 {{-- Hari --}}
                 <div class="form-control mb-5">
                     <label class="label pb-1">

@@ -24,6 +24,7 @@
                     <thead class="bg-slate-100 text-slate-500 text-xs uppercase tracking-wider">
                         <tr>
                             <th class="px-6 py-4">ID</th>
+                            <th class="px-6 py-4">Poli</th>
                             <th class="px-6 py-4">Hari</th>
                             <th class="px-6 py-4">Jam Mulai</th>
                             <th class="px-6 py-4">Jam Selesai</th>
@@ -39,6 +40,10 @@
 
                             <td class="px-6 py-4 text-slate-500">
                                 {{ $jadwalPeriksa->id }}
+                            </td>
+
+                            <td class="px-6 py-4 text-slate-500">
+                                {{ $jadwalPeriksa->poli->nama_poli ?? '--' }}
                             </td>
 
                             <td class="px-6 py-4 font-semibold text-slate-800">
@@ -86,7 +91,7 @@
                         </tr>
                         @empty
 <tr>
-    <td colspan="6" class="text-center py-14 text-slate-400">
+    <td colspan="7" class="text-center py-14 text-slate-400">
         <div class="flex flex-col items-center justify-center gap-2">
             <i class="fas fa-inbox text-3xl"></i>
             <span>Belum ada Jadwal Periksa</span>

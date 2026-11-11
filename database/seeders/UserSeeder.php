@@ -26,20 +26,23 @@ class UserSeeder extends Seeder
                 'email' => 'dokter@gmail.com',
                 'password' => Hash::make('dokter'),
                 'role' => 'dokter'
-            ],
-            [
-                'nama' => 'Pasien',
-                'email' => 'pasien@gmail.com',
-                'password' => Hash::make('pasien'),
-                'role' => 'pasien'
             ]
         ];
 
         foreach ($users as $user) {
-            User::updateOrCreate(
+            User::firstOrCreate(
                 ['email' => $user['email']],
                 $user
             );
         }
+
+        User::updateOrCreate(
+            ['email' => 'pasien@gmail.com'],
+            [
+                'nama' => 'Pasien',
+                'password' => Hash::make('pasien'),
+                'role' => 'pasien',
+            ]
+        );
     }
 }

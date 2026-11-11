@@ -10,6 +10,7 @@ class JadwalPeriksa extends Model
 
     protected $fillable = [
         'id_dokter',
+        'id_poli',
         'hari',
         'jam_mulai',
         'jam_selesai',
@@ -19,6 +20,11 @@ class JadwalPeriksa extends Model
     public function dokter()
     {
         return $this->belongsTo(User::class, 'id_dokter');
+    }
+
+    public function poli()
+    {
+        return $this->belongsTo(Poli::class, 'id_poli');
     }
 
     public function daftarPolis()
